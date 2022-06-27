@@ -11,6 +11,9 @@ import com.example.petshopfirebase.R
 import com.example.petshopfirebase.core.MyResources
 import com.example.petshopfirebase.databinding.BotItemBinding
 import com.example.petshopfirebase.entities.BotItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class rvBotAdapter(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvBotAdapter.ViewHolder>() {
 
@@ -32,7 +35,7 @@ class rvBotAdapter(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvBotAd
         holder.binding.TVPrice.text = list.get(position).price.toString()
 
         /** ürünün favorilerde olup olmadığını kontrol et **/
-        if(MyResources.getInstance().favItems.contains(list.get(position))){
+        if(MyResources.getInstance().favItems!!.contains(list.get(position))){
             holder.binding.IVLike.setImageResource(R.drawable.like)
             holder.binding.IVLike.contentDescription = "true"
         } //is item liked ?
@@ -48,13 +51,19 @@ class rvBotAdapter(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvBotAd
                 /** Kullanıcı ürünü favorilerine ekledi */
                 (it as ImageView).setImageResource(R.drawable.like) //Kalp görselini dolu olanla değiştir
                 it.contentDescription = "true"  //Açıklamayı true olarak değiştir
-                MyResources.getInstance().favItems.add(list.get(position))
+                MyResources.getInstance().favItems?.add(list.get(position))
+                CoroutineScope(Dispatchers.IO).launch {
+                    MyResources.getInstance().itemDao.insertAll(list.get(position))
+                }
             }
             else {
                 /** Kullanıcı ürünü favorilerinden çıkardı */
                 (it as ImageView).setImageResource(R.drawable.like_blank) //Kalp görselini boş olanla değiştir
                 it.contentDescription = "false" //Açıklamayı false olarak değiştir
-                MyResources.getInstance().favItems.remove(list.get(position))
+                MyResources.getInstance().favItems?.remove(list.get(position))
+                CoroutineScope(Dispatchers.IO).launch {
+                    MyResources.getInstance().itemDao.delete(list.get(position))
+                }
             }
         } //like button things
     }

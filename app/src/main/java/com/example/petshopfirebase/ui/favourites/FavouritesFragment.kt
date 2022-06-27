@@ -25,22 +25,35 @@ class FavouritesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentFavouritesBinding.inflate(inflater)
 
+        return binding.root
+    }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         MyResources.getInstance().isDarkTheme = isDarkThemeOn()
         if(!MyResources.getInstance().isDarkTheme){
             binding.rvFavourites.setBackgroundColor(Color.WHITE)
             binding.rvFavourites.setBackgroundColor(Color.WHITE)
         }
 
-        return binding.root
+        setRecycle()
+    }
+
+    fun setRecycle(){
+        if(MyResources.getInstance().favItems?.size != 0) {
+            binding.rvFavourites.adapter = rvFavourites(MyResources.getInstance().favItems!!, this)
+            binding.rvFavourites.layoutManager =
+                GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+        }
+        else
+            binding.rvFavourites.layoutManager = null
     }
 
     fun isDarkThemeOn(): Boolean {
         return resources.configuration.uiMode and
                 Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     } //Tema kontrol edici
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
 }

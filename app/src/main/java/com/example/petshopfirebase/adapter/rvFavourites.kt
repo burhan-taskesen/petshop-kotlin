@@ -12,8 +12,13 @@ import com.example.petshopfirebase.R
 import com.example.petshopfirebase.core.MyResources
 import com.example.petshopfirebase.databinding.BotItemBinding
 import com.example.petshopfirebase.entities.BotItem
+import com.example.petshopfirebase.ui.favourites.FavouritesFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class rvFavourites(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvFavourites.ViewHolder>() {
+class rvFavourites(var list : ArrayList<BotItem>, var fragment: FavouritesFragment) : RecyclerView.Adapter<rvFavourites.ViewHolder>() {
 
     private var lightModeTextColor : String = "#222224"
 
@@ -33,7 +38,7 @@ class rvFavourites(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvFavou
         holder.binding.TVPrice.text = list.get(position).price.toString()
 
         /** ürünün favorilerde olup olmadığını kontrol et **/
-        if(MyResources.getInstance().favItems.contains(list.get(position))){
+        if(MyResources.getInstance().favItems!!.contains(list.get(position))){
             holder.binding.IVLike.setImageResource(R.drawable.like)
             holder.binding.IVLike.contentDescription = "true"
         } //is item liked ?
@@ -49,11 +54,21 @@ class rvFavourites(var list : ArrayList<BotItem>) : RecyclerView.Adapter<rvFavou
                 /** Kullanıcı ürünü favorilerine ekledi */
                 (it as ImageView).setImageResource(R.drawable.like) //Kalp görselini dolu olanla değiştir
                 it.contentDescription = "true"  //Açıklamayı true olarak değiştir
+                MyResources.getInstance().favItems?.add(list.get(position))
             }
             else {
                 /** Kullanıcı ürünü favorilerinden çıkardı */
                 (it as ImageView).setImageResource(R.drawable.like_blank) //Kalp görselini boş olanla değiştir
                 it.contentDescription = "false" //Açıklamayı false olarak değiştir
+                CoroutineScope(Dispatchers.IO).launch {
+                    MyResources.getInstance().itemDao.delete(list.get(position))
+
+                    MyResources.getInstance().favItems?.remove(list.get(position))
+
+                    withContext(Dispatchers.Main){
+                        fragment.setRecycle()
+                    }
+                }
             }
         } //like button things
     }

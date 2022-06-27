@@ -52,8 +52,19 @@ class MainActivity : AppCompatActivity() {
         Log.d("theme debug", isDarkThemeOn().toString())
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        //saveDatas()
+    }
+
     fun isDarkThemeOn(): Boolean {
         return resources.configuration.uiMode and
                 Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     } //Tema kontrol edici
+
+    fun saveDatas(){
+        MyResources.getInstance().favItems?.forEach {
+            MyResources.getInstance().itemDao.insertAll(it)
+        }
+    }
 }

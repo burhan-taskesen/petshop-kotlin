@@ -8,13 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.petshopfirebase.MainActivity
 import com.example.petshopfirebase.adapter.rvBotAdapter
 import com.example.petshopfirebase.adapter.rvTopAdapter
 import com.example.petshopfirebase.core.MyResources
@@ -59,8 +56,8 @@ class HomeFragment : Fragment() {
             binding.rvBot.setBackgroundColor(Color.WHITE)
         }
 
-        setTopAdapter(binding.rvTop)
-        setBotAdapter()
+        setTopRecycle(binding.rvTop)
+        setBotRecycle()
     }
 
     override fun onStart() {
@@ -73,7 +70,7 @@ class HomeFragment : Fragment() {
         return resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     } //Tema kontrol edici
 
-    fun setBotAdapter(path : String = "mamalar"){
+    fun setBotRecycle(path : String = "mamalar"){
         binding.rvBot.adapter = rvBotAdapter(ArrayList())
         MyResources.getInstance().getFirebaseFirestore().collection(path).addSnapshotListener(object :
             EventListener<QuerySnapshot?> {
@@ -98,7 +95,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun setTopAdapter(rv: RecyclerView) {
+    private fun setTopRecycle(rv: RecyclerView) {
         MyResources.getInstance().getFirebaseFirestore().collection("items").addSnapshotListener(object : EventListener<QuerySnapshot?> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if(error==null){

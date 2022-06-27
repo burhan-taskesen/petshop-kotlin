@@ -13,7 +13,7 @@ class MyResources() {
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     public var botItems: ArrayList<BotItem> = ArrayList()
     public var topItems: ArrayList<TopItem> = ArrayList()
-    public var favItems: ArrayList<BotItem> = ArrayList()
+    public var favItems: ArrayList<BotItem>? = ArrayList()
     public lateinit var dataBase : AppDatabase
     public lateinit var itemDao: ItemDao
     public var isDarkTheme : Boolean = false
