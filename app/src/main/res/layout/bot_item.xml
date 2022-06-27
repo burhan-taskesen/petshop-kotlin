@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_botItem"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#222224"
+    android:contentDescription="item layout">
+
+    <ImageView
+        android:id="@+id/IV_item"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="item image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat" />
+
+    <TextView
+        android:id="@+id/TV_name"
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="12dp"
+        android:autoSizeTextType="uniform"
+        android:contentDescription="item name"
+        android:text="ürün adı"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/IV_item"
+        app:layout_constraintTop_toBottomOf="@+id/IV_item" />
+
+    <TextView
+        android:id="@+id/TV_price"
+        android:layout_width="105dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="item price"
+        android:text="fiyat"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/IV_item"
+        app:layout_constraintTop_toBottomOf="@+id/TV_name"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/IV_like"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="false"
+        app:layout_constraintEnd_toEndOf="@+id/IV_item"
+        app:layout_constraintTop_toTopOf="@+id/TV_price"
+        app:srcCompat="@drawable/like_blank" />
+
+    <View
+        android:id="@+id/dvd_bot"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/dvd_right"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/dvd_top"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
