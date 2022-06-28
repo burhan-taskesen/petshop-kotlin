@@ -71,5 +71,9 @@ class rvFavourites(var list : ArrayList<BotItem>, var fragment: FavouritesFragme
                 }
             }
         } //like button things
+
+        holder.binding.IVItem.setOnClickListener {
+            MyResources.getInstance().activity.navController
+        }
     }
 }

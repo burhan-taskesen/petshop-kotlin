@@ -1,5 +1,6 @@
 package com.example.petshopfirebase.core
 
+import com.example.petshopfirebase.MainActivity
 import com.example.petshopfirebase.dataAccess.AppDatabase
 import com.example.petshopfirebase.dataAccess.ItemDao
 import com.example.petshopfirebase.entities.BotItem
@@ -11,9 +12,8 @@ class MyResources() {
 
     private var firebaseAuth : FirebaseAuth = FirebaseAuth.getInstance()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    public var botItems: ArrayList<BotItem> = ArrayList()
-    public var topItems: ArrayList<TopItem> = ArrayList()
     public var favItems: ArrayList<BotItem>? = ArrayList()
+    public lateinit var activity : MainActivity
     public lateinit var dataBase : AppDatabase
     public lateinit var itemDao: ItemDao
     public var isDarkTheme : Boolean = false
