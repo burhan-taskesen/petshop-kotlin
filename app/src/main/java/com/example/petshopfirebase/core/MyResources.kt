@@ -12,10 +12,12 @@ class MyResources() {
 
     private var firebaseAuth : FirebaseAuth = FirebaseAuth.getInstance()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    public var favItems: ArrayList<BotItem>? = ArrayList()
-    public lateinit var activity : MainActivity
-    public lateinit var dataBase : AppDatabase
-    public lateinit var itemDao: ItemDao
+    var favItems: ArrayList<BotItem>? = ArrayList()
+    lateinit var activity : MainActivity
+    lateinit var dataBase : AppDatabase
+    lateinit var itemDao: ItemDao
+    var cartItems : HashMap<BotItem,Int> = HashMap()
+
     public var isDarkTheme : Boolean = false
 
     companion object{

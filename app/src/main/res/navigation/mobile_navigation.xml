@@ -24,7 +24,11 @@
     <fragment
         android:id="@+id/navigation_cart"
         android:name="com.example.petshopfirebase.ui.cart.CartFragment"
-        android:label="@string/title_cart" />
+        android:label="@string/title_cart" >
+        <action
+            android:id="@+id/action_navigation_cart_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.petshopfirebase.ui.profile.ProfileFragment"

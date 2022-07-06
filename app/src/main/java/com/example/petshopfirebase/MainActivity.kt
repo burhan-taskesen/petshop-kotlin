@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        //Navigation.findNavController(binding.fragmentContainerView2).navigate()
         Log.d("Debug mesaj","actv on create")
 
     }

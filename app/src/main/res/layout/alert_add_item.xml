@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#F41616">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/myStyle"
+        android:layout_width="299dp"
+        android:layout_height="162dp"
+        android:text="Sepete ekle"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_up"
+        android:layout_width="55dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="96dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/img_button" />
+
+    <ImageButton
+        android:id="@+id/btn_down"
+        android:layout_width="55dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="12dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        android:scaleY="-1"
+        app:layout_constraintStart_toStartOf="@+id/btn_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_up"
+        app:srcCompat="@drawable/img_button" />
+
+    <EditText
+        android:id="@+id/et_piece"
+        android:layout_width="76dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_up"
+        app:layout_constraintTop_toTopOf="@+id/btn_up" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="adet"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/et_piece"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

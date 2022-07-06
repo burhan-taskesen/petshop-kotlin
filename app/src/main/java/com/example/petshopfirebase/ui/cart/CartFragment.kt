@@ -41,10 +41,6 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        model.tv_cart_tmp.observe(viewLifecycleOwner){
-            binding.tvCartTmp.text = it
-        }
     }
 
     companion object {

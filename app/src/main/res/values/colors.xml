@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="myDarkPrimary">#FF222224</color>
-
+    <color name="myLightModeTextColor">#3F3C3C</color>
+    <color name="myDarkModeTextColor">#B8ABAB</color>
 </resources>

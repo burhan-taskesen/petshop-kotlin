@@ -7,12 +7,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petshopfirebase.R
 import com.example.petshopfirebase.adapter.rvFavourites
 import com.example.petshopfirebase.core.MyResources
 import com.example.petshopfirebase.databinding.FragmentFavouritesBinding
+import com.example.petshopfirebase.ui.home.HomeFragmentDirections
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class FavouritesFragment : Fragment() {
     private lateinit var binding: FragmentFavouritesBinding
@@ -40,16 +51,20 @@ class FavouritesFragment : Fragment() {
         }
 
         setRecycle()
+
+        //requireActivity().findNavController(R.id.nav_host_fragment_activity_main).navigate(HomeFragmentDirections)
     }
 
     fun setRecycle(){
         if(MyResources.getInstance().favItems?.size != 0) {
             binding.rvFavourites.adapter = rvFavourites(MyResources.getInstance().favItems!!, this)
-            binding.rvFavourites.layoutManager =
-                GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+            binding.rvFavourites.layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+            binding.tvBlank.visibility = View.INVISIBLE
         }
-        else
+        else {
             binding.rvFavourites.layoutManager = null
+            binding.tvBlank.visibility = View.VISIBLE
+        }
     }
 
     fun isDarkThemeOn(): Boolean {
