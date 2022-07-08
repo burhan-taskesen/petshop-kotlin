@@ -19,6 +19,7 @@ import com.example.petshopfirebase.databinding.AlertAddItemBinding
 import com.example.petshopfirebase.databinding.BotItemBinding
 import com.example.petshopfirebase.entities.BotItem
 import com.example.petshopfirebase.ui.favourites.FavouritesFragment
+import com.example.petshopfirebase.util.CartItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -86,19 +87,22 @@ class rvFavourites(var list : ArrayList<BotItem>, var fragment: FavouritesFragme
             override fun onLongClick(p0: View?): Boolean {
                 var myAlert = AlertDialog.Builder(holder.itemView.context)
                 var binding = AlertAddItemBinding.inflate(LayoutInflater.from(holder.itemView.context))
-                binding.btnUp.setOnClickListener(){
+                binding.btnAlertAddUp.setOnClickListener(){
                     var tmp = Integer.parseInt(binding.etPiece.text.toString())
                     binding.etPiece.setText((tmp+1).toString())
                 }
-                binding.btnDown.setOnClickListener(){
+                binding.btnAlertAddDown.setOnClickListener(){
                     var tmp = Integer.parseInt(binding.etPiece.text.toString())
-                    binding.etPiece.setText((tmp-1).toString())
+                    if(!(tmp <= 1)){
+                        binding.etPiece.setText((tmp-1).toString())
+                    }
                 }
                 myAlert.setView(binding.root)
                 myAlert.setPositiveButton("Ekle",object : DialogInterface.OnClickListener {
                     override fun onClick(p0: DialogInterface?, p1: Int) {
                         //TODO("Ekleme işlemi yapılacak")
-                        Toast.makeText(holder.itemView.context,"Ürün sepete eklendi.",0).show()
+                        MyResources.getInstance().cartItems.add(CartItem(list.get(position),binding.etPiece.text.toString().toInt()))
+                        Toast.makeText(holder.itemView.context,"Ürün eklendi.",Toast.LENGTH_SHORT).show()
                     }
                 })
                 myAlert.setNegativeButton("İptal",null)

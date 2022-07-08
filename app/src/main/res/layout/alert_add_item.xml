@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btn_up"
+        android:id="@+id/btn_alertAdd_up"
         android:layout_width="55dp"
         android:layout_height="19dp"
         android:layout_marginStart="28dp"
@@ -30,15 +30,15 @@
         app:srcCompat="@drawable/img_button" />
 
     <ImageButton
-        android:id="@+id/btn_down"
+        android:id="@+id/btn_alertAdd_down"
         android:layout_width="55dp"
         android:layout_height="19dp"
         android:layout_marginTop="12dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         android:scaleY="-1"
-        app:layout_constraintStart_toStartOf="@+id/btn_up"
-        app:layout_constraintTop_toBottomOf="@+id/btn_up"
+        app:layout_constraintStart_toStartOf="@+id/btn_alertAdd_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_alertAdd_up"
         app:srcCompat="@drawable/img_button" />
 
     <EditText
@@ -53,8 +53,8 @@
         android:text="1"
         android:textColor="@android:color/secondary_text_light"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_up"
-        app:layout_constraintTop_toTopOf="@+id/btn_up" />
+        app:layout_constraintStart_toEndOf="@+id/btn_alertAdd_up"
+        app:layout_constraintTop_toTopOf="@+id/btn_alertAdd_up" />
 
     <TextView
         android:id="@+id/textView2"

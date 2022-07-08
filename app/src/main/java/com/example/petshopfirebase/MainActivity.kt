@@ -61,11 +61,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("theme debug", isDarkThemeOn().toString())
     }
 
-    fun fabFunc(view: View) {
-        findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_favourites)
-
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         //saveDatas()

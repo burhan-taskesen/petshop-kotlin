@@ -5,6 +5,7 @@ import com.example.petshopfirebase.dataAccess.AppDatabase
 import com.example.petshopfirebase.dataAccess.ItemDao
 import com.example.petshopfirebase.entities.BotItem
 import com.example.petshopfirebase.entities.TopItem
+import com.example.petshopfirebase.util.CartItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -16,7 +17,7 @@ class MyResources() {
     lateinit var activity : MainActivity
     lateinit var dataBase : AppDatabase
     lateinit var itemDao: ItemDao
-    var cartItems : HashMap<BotItem,Int> = HashMap()
+    var cartItems : ArrayList<CartItem> = ArrayList()
 
     public var isDarkTheme : Boolean = false
 

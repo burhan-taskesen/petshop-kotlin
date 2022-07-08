@@ -10,9 +10,10 @@
         <entry key="..\:/Users/kuzum/AndroidStudioProjects/PetshopFirebase/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/drawable/rounded_fg.xml" value="0.2485" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/alert_add_item.xml" value="0.4" />
+        <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/alert_add_item.xml" value="0.8" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/bot_item.xml" value="0.6" />
-        <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/fragment_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/cart_item.xml" value="0.536" />
+        <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/fragment_favourites.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/kuzum/Desktop/Personal/Android_Projeleri/PetshopFirebase/app/src/main/res/layout/fragment_home.xml" value="0.2" />
