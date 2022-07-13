@@ -6,12 +6,8 @@
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
-<<<<<<< HEAD
+
     <string name="token">your token here</string>
     <string name="chatId">your chat id here</string>
 </resources>
-=======
-    <string name="token">1791880154:AAEHWHMiQRsRRSTj3fsiIppQP1BRK-QUfhg</string>
-    <string name="chatId">1617972835</string>
-</resources>
->>>>>>> da60c1f9b352a24d3c591043fbebbfb6259f4828
+
