@@ -15,7 +15,7 @@ class MyResources() {
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     var favItems: ArrayList<BotItem>? = ArrayList()
     lateinit var activity : MainActivity
-    lateinit var dataBase : AppDatabase
+    lateinit var dataBaseFavourites : AppDatabase
     lateinit var itemDao: ItemDao
     var cartItems : ArrayList<CartItem> = ArrayList()
 

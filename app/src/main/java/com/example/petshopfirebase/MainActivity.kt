@@ -3,11 +3,8 @@ package com.example.petshopfirebase
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -16,11 +13,7 @@ import androidx.room.Room
 import com.example.petshopfirebase.core.MyResources
 import com.example.petshopfirebase.dataAccess.AppDatabase
 import com.example.petshopfirebase.databinding.ActivityMainBinding
-import com.example.petshopfirebase.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.EventListener
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +24,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        MyResources.getInstance().dataBase = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "favourites").build()
-        MyResources.getInstance().itemDao = MyResources.getInstance().dataBase.itemDao()
+        MyResources.getInstance().dataBaseFavourites = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "favourites").build()
+        MyResources.getInstance().itemDao = MyResources.getInstance().dataBaseFavourites.itemDao()
         MyResources.getInstance().activity = this
 
         CoroutineScope(Dispatchers.IO).launch {

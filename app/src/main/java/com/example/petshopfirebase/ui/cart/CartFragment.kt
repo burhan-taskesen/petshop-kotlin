@@ -22,6 +22,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.*
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.URL
+import javax.net.ssl.HttpsURLConnection
 
 class CartFragment : Fragment() {
 
@@ -69,31 +73,39 @@ class CartFragment : Fragment() {
         }
         //Bu yöntemin nasıl çalışacağını merak ettiğim için buraya ekledim. Yorum satırları kaldırılınca direkt olarak çalışabilir durumda
         */
+        /** Sepet boş iken sipariş vermeye çalışmak **/
         if(MyResources.getInstance().cartItems.size == 0){
             Toast.makeText(requireContext(),"Sepetinize ürün eklemeyi unutmuş olabilirsiniz", Toast.LENGTH_SHORT).show()
             return
         }
 
+        /** Telegram bot bilgilerini almak **/
         var token = getString(R.string.token)
         var chatId = getString(R.string.chatId)
+
+        /** Sepetteki eşyaların teker teker fiyatlarını hesaplama **/
         var message = ""
         var total = 0.0
-
         MyResources.getInstance().cartItems.forEach {
             message = message + it.item.name + " x " + it.piece + ","
             total += it.piece * it.item.price
         }
         message += "total : " + total.toString()
 
+        /** Telegramdan mesaj olarak sipariş bilgisini göndermek **/
         var api = Retrofit.Builder().baseUrl("https://api.telegram.org/bot" + token + "/").addConverterFactory(ScalarsConverterFactory.create()).build().create(api::class.java)
-
         CoroutineScope(Dispatchers.IO).launch {
             api.order(chatId,message).enqueue(object : Callback<String?> {
                 override fun onResponse(call: Call<String?>, response: Response<String?>) {
                     CoroutineScope(Dispatchers.Main).launch {
                         //println(response.body())
-                        if(response.code() == 200)
+                        if(response.code() == 200){
                             Toast.makeText(requireContext(),"Siparişiniz verildi.",Toast.LENGTH_SHORT).show()
+
+                            /** Sipariş verildikten sonra o andaki sipariş listesini boşaltmak **/
+                            MyResources.getInstance().cartItems.clear()
+                            setRecycler()
+                        }
                     }
                 }
 
