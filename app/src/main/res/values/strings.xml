@@ -6,6 +6,6 @@
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="token">your telegram bot token here</string>
-    <string name="chatId">your telegram chat id here</string>
+    <string name="token">your token here</string>
+    <string name="chatId">your chat id here</string>
 </resources>
