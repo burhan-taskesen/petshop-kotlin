@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petshopfirebase.adapter.rvBotAdapter
 import com.example.petshopfirebase.adapter.rvTopAdapter
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.databinding.FragmentHomeBinding
 import com.example.petshopfirebase.entities.BotItem
 import com.example.petshopfirebase.entities.TopItem

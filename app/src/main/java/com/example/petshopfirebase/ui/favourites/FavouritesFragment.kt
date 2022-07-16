@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petshopfirebase.R
 import com.example.petshopfirebase.adapter.rvFavourites
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.databinding.FragmentFavouritesBinding
 import com.example.petshopfirebase.ui.home.HomeFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton

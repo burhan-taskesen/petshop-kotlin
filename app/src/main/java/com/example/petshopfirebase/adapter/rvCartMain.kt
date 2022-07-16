@@ -3,12 +3,12 @@ package com.example.petshopfirebase.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.databinding.CartItemBinding
 import com.example.petshopfirebase.ui.cart.CartFragment
-import com.example.petshopfirebase.util.CartItem
+import com.example.petshopfirebase.dataClass.CartItem
 
-class rvCartMain(var list : ArrayList<CartItem>,var fragment: CartFragment) : RecyclerView.Adapter<rvCartMain.ViewHolder>() {
+class rvCartMain(var list : ArrayList<CartItem>, var fragment: CartFragment) : RecyclerView.Adapter<rvCartMain.ViewHolder>() {
     class ViewHolder(var binding: CartItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

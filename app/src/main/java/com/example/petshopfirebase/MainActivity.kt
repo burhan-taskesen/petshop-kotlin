@@ -10,7 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.dataAccess.AppDatabase
 import com.example.petshopfirebase.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView

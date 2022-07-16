@@ -1,11 +1,10 @@
-package com.example.petshopfirebase.core
+package com.example.petshopfirebase.util
 
 import com.example.petshopfirebase.MainActivity
 import com.example.petshopfirebase.dataAccess.AppDatabase
 import com.example.petshopfirebase.dataAccess.ItemDao
 import com.example.petshopfirebase.entities.BotItem
-import com.example.petshopfirebase.entities.TopItem
-import com.example.petshopfirebase.util.CartItem
+import com.example.petshopfirebase.dataClass.CartItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

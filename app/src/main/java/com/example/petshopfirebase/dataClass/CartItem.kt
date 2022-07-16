@@ -1,4 +1,4 @@
-package com.example.petshopfirebase.util
+package com.example.petshopfirebase.dataClass
 
 import com.example.petshopfirebase.entities.BotItem
 

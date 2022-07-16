@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petshopfirebase.R
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.databinding.TopItemBinding
 import com.example.petshopfirebase.entities.TopItem
 import com.example.petshopfirebase.ui.home.HomeFragment

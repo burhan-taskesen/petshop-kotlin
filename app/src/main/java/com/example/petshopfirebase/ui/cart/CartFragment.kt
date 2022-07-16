@@ -13,7 +13,7 @@ import androidx.lifecycle.withCreated
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petshopfirebase.R
 import com.example.petshopfirebase.adapter.rvCartMain
-import com.example.petshopfirebase.core.MyResources
+import com.example.petshopfirebase.util.MyResources
 import com.example.petshopfirebase.databinding.FragmentCartBinding
 import com.example.petshopfirebase.rest.api
 import kotlinx.coroutines.CoroutineScope
